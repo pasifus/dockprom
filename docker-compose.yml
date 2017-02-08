@@ -92,3 +92,14 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+
+  nvidiaexporter:
+    build: ./helpers/nvidia
+    container_name: nvidiaexporter
+    restart: unless-stopped
+    expose:
+      - 9200
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
