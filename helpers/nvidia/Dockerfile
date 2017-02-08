@@ -1,4 +1,5 @@
 FROM nvidia/cuda:7.0-cudnn4-devel
+#FROM nvidia/cuda:cudnn-devel
 MAINTAINER Yuri Laskin <y.laskin@agentvi.com>
 
 ENV PATH /usr/local/bin:$PATH
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --force-yes \
 		python-pip \
 	&& rm -rf /var/lib/apt/lists/*
 
-ADD git clone https://github.com/pasifus/nvidia_exporter
+RUN git clone https://github.com/pasifus/nvidia_exporter
 
 WORKDIR /nvidia_exporter
 
